@@ -158,42 +158,42 @@
 		<div id="timerButtons">
 			<paper-button raised class="green" on-tap="startTimer" disabled="[[calcStartDisabled(checklistIncomplete, state)]]">
 				<iron-icon icon="av:play-arrow" title="Start/Resume All"></iron-icon>
-				&nbsp;Start
+				&nbsp;スタート
 			</paper-button>
 
 			<paper-button raised class="yellow" on-tap="stopTimer" disabled="[[calcPauseDisabled(state)]]">
 				<iron-icon icon="av:pause" title="Pause Timer"></iron-icon>
-				&nbsp;Pause
+				&nbsp;一時停止
 			</paper-button>
 
 			<paper-button raised class="purple" on-tap="confirmReset">
 				<iron-icon icon="refresh" title="Reset"></iron-icon>
-				&nbsp;Reset
+				&nbsp;リセット
 			</paper-button>
 
 			<paper-button raised class="purple" on-tap="editMasterTime" disabled="[[checklistIncomplete]]">
 				<iron-icon icon="editor:mode-edit" title="Edit"></iron-icon>
-				&nbsp;Edit
+				&nbsp;編集
 			</paper-button>
 		</div>
 
 		<paper-dialog id="resetDialog" with-backdrop>
 			<p>
-				Are you sure you want to reset the timer and each runner's final time? This cannot be undone!
+				タイマーをリセットしますか？<b>取り消しはできません</b>
 			</p>
 			<div class="buttons">
-				<paper-button dialog-confirm on-tap="resetTimer">Yes, reset</paper-button>
-				<paper-button dialog-dismiss autofocus>No, do not reset</paper-button>
+				<paper-button dialog-confirm on-tap="resetTimer">リセットする</paper-button>
+				<paper-button dialog-dismiss autofocus>やっぱりやめる</paper-button>
 			</div>
 		</paper-dialog>
 
 		<paper-dialog id="editDialog" with-backdrop>
 			<p id="editDialog-text"></p>
-			<paper-input id="editDialog-input" label="Final Time" placeholder="00:00:00" auto-validate
+			<paper-input id="editDialog-input" label="タイム" placeholder="00:00:00" auto-validate
 						 prevent-invalid-input allowed-pattern="[0-9:]"></paper-input>
 			<div class="buttons">
-				<paper-button dialog-confirm on-tap="saveEditedTime">Save</paper-button>
-				<paper-button dialog-dismiss autofocus>Cancel</paper-button>
+				<paper-button dialog-confirm on-tap="saveEditedTime">保存</paper-button>
+				<paper-button dialog-dismiss autofocus>キャンセル</paper-button>
 			</div>
 		</paper-dialog>
 
@@ -211,31 +211,31 @@
 						<paper-button raised class="green" on-tap="finishRunner"
 									  hidden="[[calcFinishHidden(results, index)]]">
 							<iron-icon src="img/flag-checkered.svg"></iron-icon>
-							&nbsp;Finish
+							&nbsp;完走
 						</paper-button>
 
 						<paper-button raised class="yellow" on-tap="resumeRunner"
 									  hidden="[[calcResumeHidden(results, index)]]">
 							<iron-icon icon="undo"></iron-icon>
-							&nbsp;Resume
+							&nbsp;再開
 						</paper-button>
 
 						<paper-button raised class="gray" on-tap="forfeitRunner"
 									  hidden="[[calcForfeitHidden(results, index)]]">
 							<iron-icon icon="cancel"></iron-icon>
-							&nbsp;Forfeit
+							&nbsp;降参
 						</paper-button>
 
 						<paper-button raised class="purple" on-tap="editRunnerTime"
 									  disabled="[[calcEditDisabled(results, index)]]">
 							<iron-icon icon="editor:mode-edit"></iron-icon>
-							&nbsp;Edit
+							&nbsp;編集
 						</paper-button>
 					</div>
 				</template>
 
 				<template is="dom-if" if="[[!runner]]">
-					<div class="runner-empty">- EMPTY SLOT -</div>
+					<div class="runner-empty">- 該当走者なし -</div>
 				</template>
 			</div>
 		</template>

@@ -31,17 +31,4 @@
 			tweetsContainer.appendChild(tweetItem);
 		});
 	});
-
-	currentScene.on('change', newVal => {
-		switch (newVal) {
-			case 'interview':
-			case 'standard_4':
-			case 'gameboy_4':
-			case 'ds':
-				cover.style.display = 'flex';
-				break;
-			default:
-				cover.style.display = 'none';
-		}
-	});
 })();

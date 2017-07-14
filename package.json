@@ -1,10 +1,9 @@
 {
-  "name": "agdq17-layouts",
-  "description": "The on-stream graphics used during Awesome Games Done Quick 2017.",
+  "name": "rtaij-layouts",
+  "description": "The on-stream graphics for RTA in Japan.",
   "version": "1.0.0",
   "contributors": [
-    "Alex Van Camp <email@alexvan.camp>",
-    "Chris Hanel <chrishanel@gmail.com>"
+    "Hoishin <hoishinxii@gmail.com>"
   ],
   "dependencies": {
     "bluebird": "^3.4.0",
@@ -12,7 +11,6 @@
     "deep-diff": "^0.3.4",
     "deep-equal": "^1.0.1",
     "firebase-admin": "^4.0.4",
-    "gamepad": "^1.4.2",
     "lodash.assign": "^4.0.9",
     "lodash.debounce": "^4.0.6",
     "lodash.merge": "^4.4.0",
@@ -37,14 +35,17 @@
     "istanbul": "^0.4.3",
     "mocha": "^2.5.1"
   },
-  "homepage": "http://gamesdonequick.com/",
+  "bundleDependency": {
+  	"lfg-twitchapi": "^1.0.0"
+  },
+  "homepage": "http://twitter.com/hoishinxii",
   "license": "Apache-2.0",
   "nodecg": {
     "compatibleRange": "~0.8.6",
     "dashboardPanels": [
       {
         "name": "schedule",
-        "title": "Schedule",
+        "title": "スケジュール",
         "width": 4,
         "headerColor": "#2d4e8a",
         "file": "schedule/schedule.html"
@@ -56,70 +57,25 @@
         "dialog": true,
         "dialogButtons": [
           {
-            "name": "cancel",
+            "name": "キャンセル",
             "type": "dismiss"
           }
         ],
         "file": "schedule/dialogs/edit-run.html"
       },
       {
-        "name": "advertisements",
-        "title": "Advertisements",
-        "width": 4,
-        "headerColor": "#2d4e8a",
-        "file": "advertisements.html"
-      },
-      {
         "name": "checklist",
-        "title": "Checklist",
+        "title": "チェックリスト",
         "width": 4,
         "headerColor": "#2d4e8a",
         "file": "checklist.html"
       },
       {
-        "name": "total",
-        "title": "Total",
-        "width": 2,
-        "headerColor": "#2d4e8a",
-        "file": "total.html"
-      },
-      {
-        "name": "edit-total",
-        "title": "Edit Total",
-        "width": 2,
-        "dialog": true,
-        "dialogButtons": [
-          {
-            "name": "save",
-            "type": "confirm"
-          },
-          {
-            "name": "cancel",
-            "type": "dismiss"
-          }
-        ],
-        "file": "dialogs/edit-total.html"
-      },
-      {
         "name": "twitter",
-        "title": "Twitter",
+        "title": "ツイッター",
         "width": 4,
         "headerColor": "#55acee",
         "file": "twitter.html"
-      },
-      {
-        "name": "interview",
-        "title": "Interview",
-        "width": 2,
-        "headerColor": "#2d4e8a",
-        "file": "interview.html"
-      },
-      {
-        "name": "countdown",
-        "title": "Countdn",
-        "width": 1,
-        "file": "countdown.html",
-        "headerColor": "#2d4e8a"
       }
     ],
     "graphics": [
@@ -129,45 +85,14 @@
         "height": 720
       },
       {
-        "file": "interview_monitor.html",
-        "width": 1280,
-        "height": 720
-      },
-      {
-        "file": "interview_tier2.html",
-        "width": 1280,
-        "height": 720
-      },
-      {
-        "file": "advertisements.html",
-        "width": 1280,
-        "height": 720,
-        "singleInstance": true
-      },
-      {
-        "file": "countdown.html",
-        "width": 1280,
-        "height": 720
-      },
-      {
         "file": "break.html",
         "width": 1280,
         "height": 720
       },
       {
-        "file": "interview.html",
-        "width": 1280,
-        "height": 665
-      },
-      {
         "file": "standard_1.html",
         "width": 1280,
-        "height": 665
-      },
-      {
-        "file": "standard_1_ff6.html",
-        "width": 1280,
-        "height": 665
+        "height": 720
       },
       {
         "file": "standard_2.html",
@@ -243,14 +168,9 @@
         "file": "test_break.html",
         "width": 1280,
         "height": 720
-      },
-      {
-        "file": "host.html",
-        "width": 1920,
-        "height": 1080
       }
     ],
-    "assetCategories": [
+    "__assetCategories": [
       {
         "name": "advertisements",
         "title": "Advertisements",
@@ -330,7 +250,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/GamesDoneQuick/agdq17-layouts.git"
+    "url": "git://github.com/Hoishin/rtaij-layouts.git"
   },
   "scripts": {
     "static": "eslint ./**/*.js ./**/*.html --ignore-path .eslintignore",

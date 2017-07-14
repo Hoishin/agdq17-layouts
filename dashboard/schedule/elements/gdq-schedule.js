@@ -68,7 +68,7 @@
 
 			if (!matched) {
 				this.$.take.removeAttribute('disabled');
-				this.$.toast.text = `Could not find speedrun with name "${nameToFind}".`;
+				this.$.toast.text = `"${nameToFind}"を含むゲームが見つかりません`;
 				this.$.toast.show();
 			}
 		},
@@ -80,18 +80,18 @@
 
 				if (err) {
 					console.error(err.message);
-					this.$.toast.text = 'Error updating schedule. Check console.';
+					this.$.toast.text = 'スケジュールの更新に失敗しました　ログを確認してください';
 					this.$.toast.show();
 					return;
 				}
 
 				if (updated) {
 					console.info(`[${nodecg.bundleName}] Schedule successfully updated`);
-					this.$.toast.text = 'Successfully updated schedule.';
+					this.$.toast.text = 'スケジュールを更新しました';
 					this.$.toast.show();
 				} else {
 					console.info(`[${nodecg.bundleName}] Schedule unchanged, not updated`);
-					this.$.toast.text = 'Schedule unchanged, not updated.';
+					this.$.toast.text = 'スケジュールに変更はありません';
 					this.$.toast.show();
 				}
 			});
@@ -109,14 +109,14 @@
 
 		editCurrent() {
 			const editor = nodecg.getDialogDocument('edit-run').getElementById('editor');
-			editor.title = `Edit Current Run (#${currentRun.value.order})`;
+			editor.title = `編集：現在のゲーム (#${currentRun.value.order})`;
 			editor.loadRun(currentRun.value);
 			nodecg.getDialog('edit-run').open();
 		},
 
 		editNext() {
 			const editor = nodecg.getDialogDocument('edit-run').getElementById('editor');
-			editor.title = `Edit Next Run (#${nextRun.value.order})`;
+			editor.title = `編集：次のゲーム (#${nextRun.value.order})`;
 			editor.loadRun(nextRun.value);
 			nodecg.getDialog('edit-run').open();
 		},

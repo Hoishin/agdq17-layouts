@@ -1,9 +1,10 @@
 'use strict';
 
+// Packages
 const clone = require('clone');
 const diff = require('deep-diff').diff;
-const objectPath = require('object-path');
 const merge = require('lodash.merge');
+const objectPath = require('object-path');
 
 /**
  * Calculates the original values for a modified run.
@@ -60,7 +61,7 @@ function calcOriginalValues(run, original) {
 
 					switch (difference.item.kind) {
 						case 'N':
-							originalValues.runners[difference.index] = {name: '', stream: ''};
+							originalValues.runners[difference.index] = {name: '', twitch: ''};
 							break;
 						case 'D':
 							originalValues.runners[difference.index] = original.runners[difference.index];
@@ -96,8 +97,16 @@ function mergeChangesFromTracker(run, unmodifiedRun) {
 	// Immediately clone the run, we want to at least try to make this a functional method...
 	run = clone(run);
 
+	if (!run.originalValues) {
+		return unmodifiedRun;
+	}
+
 	const oldOriginalValues = run.originalValues;
 	const newOriginalValues = calcOriginalValues(run, unmodifiedRun);
+	if (!newOriginalValues) {
+		return unmodifiedRun;
+	}
+
 	const differences = diff(oldOriginalValues, newOriginalValues);
 	if (!differences) {
 		return run;
@@ -174,7 +183,7 @@ function mergeChangesFromTracker(run, unmodifiedRun) {
 
 	if (run.runners) {
 		run.runners = run.runners.filter(runner => {
-			return runner.name || runner.stream;
+			return runner.name || runner.twitch;
 		});
 	}
 

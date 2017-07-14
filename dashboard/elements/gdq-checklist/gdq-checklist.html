@@ -72,30 +72,21 @@
 			}
 		</style>
 
-		<section style="margin-bottom: 11px;">
-			<div class="header">Extra Content</div>
-			<div class="group horizontal">
-				<template is="dom-repeat" items="[[extraContent]]">
-					<paper-checkbox category="extraContent" checked="{{item.complete}}">[[item.name]]</paper-checkbox>
-				</template>
-			</div>
-		</section>
-
 		<div class="columns">
 			<section>
-				<div class="header">Tech Station Duties</div>
+				<div class="header">ダッシュボード関連</div>
 				<div class="group">
-					<template is="dom-repeat" items="[[techStationDuties]]">
-						<paper-checkbox category="techStationDuties" checked="{{item.complete}}">[[item.name]]</paper-checkbox>
+					<template is="dom-repeat" items="[[dashboardDuties]]">
+						<paper-checkbox category="dashboardDuties" checked="{{item.complete}}">[[item.name]]</paper-checkbox>
 					</template>
 				</div>
 			</section>
 
 			<section>
-				<div class="header">Other Duties</div>
+				<div class="header">OBS Studio関連</div>
 				<div class="group">
-					<template is="dom-repeat" items="[[otherDuties]]">
-						<paper-checkbox category="otherDuties" checked="{{item.complete}}">[[item.name]]</paper-checkbox>
+					<template is="dom-repeat" items="[[obsDuties]]">
+						<paper-checkbox category="obsDuties" checked="{{item.complete}}">[[item.name]]</paper-checkbox>
 					</template>
 				</div>
 			</section>

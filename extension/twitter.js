@@ -13,11 +13,13 @@ module.exports = function (nodecg) {
 	const TARGET_USER_ID = nodecg.bundleConfig.twitter.userId;
 	const tweets = nodecg.Replicant('tweets', {defaultValue: []});
 
+	/*
 	// Clear queue of tweets when currentRun changes
 	nodecg.Replicant('currentRun').on('change', () => {
 		tweets.value = [];
 	});
-
+	*/
+	
 	let userStream;
 
 	/**

@@ -19,7 +19,7 @@
 			this.releaseYear = run.releaseYear;
 			this.runners = run.runners.map(runner => {
 				if (runner) {
-					return {name: runner.name, stream: runner.stream};
+					return {name: runner.name, twitch: runner.twitch, nico: runner.nico, twitter: runner.twitter};
 				}
 
 				return undefined;
@@ -32,13 +32,17 @@
 		applyChanges() {
 			// We have to build a new runners object.
 			const runners = [];
-			const runnerNameInputs = Polymer.dom(this.$.runners).querySelectorAll('paper-input[label^="Runner"]:not([disabled])');
-			const runnerStreamInputs = Polymer.dom(this.$.runners).querySelectorAll('paper-input[label="Twitch Channel"]:not([disabled])');
+			const runnerNameInputs = Polymer.dom(this.$.runners).querySelectorAll('paper-input[label^="走者"]:not([disabled])');
+			const runnerTwitchInputs = Polymer.dom(this.$.runners).querySelectorAll('paper-input[label="Twitch"]:not([disabled])');
+			const runnerNicoInputs = Polymer.dom(this.$.runners).querySelectorAll('paper-input[label="ニコ生"]:not([disabled])');
+			const runnerTwitterInputs = Polymer.dom(this.$.runners).querySelectorAll('paper-input[label="ツイッター"]:not([disabled])');
 			for (let i = 0; i < 4; i++) {
-				if (runnerNameInputs[i].value || runnerStreamInputs[i].value) {
+				if (runnerNameInputs[i].value || runnerTwitchInputs[i].value || runnerNicoInputs[i].value || runnerTwitterInputs[i].value) {
 					runners[i] = {
 						name: runnerNameInputs[i].value,
-						stream: runnerStreamInputs[i].value
+						twitch: runnerTwitchInputs[i].value,
+						nico: runnerNicoInputs[i].value,
+						twitter: runnerTwitterInputs[i].value
 					};
 				}
 			}

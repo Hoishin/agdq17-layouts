@@ -56,11 +56,11 @@
 
 		calcWingText(checklistIncomplete, coop) {
 			if (checklistIncomplete) {
-				return 'CHECKLIST INCOMPLETE';
+				return 'チェックリスト未完成';
 			}
 
 			if (coop) {
-				return 'CO-OP RUN';
+				return '協力プレイモード';
 			}
 
 			return '';
@@ -122,7 +122,7 @@
 		},
 
 		editMasterTime() {
-			this.$['editDialog-text'].textContent = `Enter a new master time.`;
+			this.$['editDialog-text'].textContent = `全体のタイムを編集`;
 			this.$.editDialog.setAttribute('data-index', 'master');
 			this.$['editDialog-input'].value = this.time;
 			this.$.editDialog.open();
@@ -131,7 +131,7 @@
 		editRunnerTime(e) {
 			const runnerEl = e.target.closest('.runner');
 			const index = runnerEl.getAttribute('data-index');
-			this.$['editDialog-text'].innerHTML = `Enter a new final time for <b>${runnerEl.getAttribute('data-name')}.</b>`;
+			this.$['editDialog-text'].innerHTML = `<b>${runnerEl.getAttribute('data-name')}</b>のタイムを編集`;
 			this.$.editDialog.setAttribute('data-index', index);
 			this.$['editDialog-input'].value = this.results[index].formatted;
 			this.$.editDialog.open();

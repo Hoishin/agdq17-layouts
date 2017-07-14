@@ -13,9 +13,8 @@
 		ready() {
 			checklist.on('change', newVal => {
 				newVal = JSON.parse(JSON.stringify(newVal));
-				this.extraContent = newVal.extraContent;
-				this.techStationDuties = newVal.techStationDuties;
-				this.otherDuties = newVal.otherDuties;
+				this.dashboardDuties = newVal.dashboardDuties;
+				this.obsDuties = newVal.obsDuties;
 			});
 		},
 

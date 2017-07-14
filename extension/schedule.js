@@ -18,6 +18,15 @@ module.exports = function (nodecg) {
 	const currentRun = nodecg.Replicant('currentRun', {defaultValue: {}});
 	const nextRun = nodecg.Replicant('nextRun', {defaultValue: {}});
 
+	const optionsRunners = {
+		uri: "https://puu.sh/wihYz/26372ce983.json",
+		json: true
+	};
+	const optionsSchedule = {
+		uri: "https://horaro.org/-/api/v1/schedules/1d11q6feml6eb87a92",
+		json: true
+	};
+
 	// If a "streamTitle" template has been defined in the bundle config, and if lfg-twitch api is present,
 	// automatically update the Twitch game and title when currentRun changes.
 	if (nodecg.bundleConfig.streamTitle) {
@@ -28,19 +37,21 @@ module.exports = function (nodecg) {
 			}
 
 			nodecg.log.info('Automatic stream title updating is enabled.');
-			let lastLongName;
+			let lastEnglishName;
+			let lastName;
 			currentRun.on('change', newVal => {
-				if (newVal.longName !== lastLongName) {
-					nodecg.log.info('Updating Twitch title and game to', newVal.longName);
-					lastLongName = newVal.longName;
+				if (newVal.englishName !== lastEnglishName || newVal.name !== lastName) {
+					nodecg.log.info('Updating Twitch title and game to', newVal.englishName);
+					lastName = newVal.name;
+					lastEnglishName = newVal.englishName;
 					twitchApi.put('/channels/{{username}}', {
 						channel: {
 							// eslint-disable-next-line no-template-curly-in-string
-							status: nodecg.bundleConfig.streamTitle.replace('${gameName}', newVal.longName),
-							game: newVal.longName
+							status: nodecg.bundleConfig.streamTitle.replace('${gameName}', newVal.name),
+							game: newVal.englishName
 						}
 					}).then(response => {
-						nodecg.log.info('Successfully updated Twitch title and game to', newVal.longName);
+						nodecg.log.info('Successfully updated Twitch title and game to', newVal.englishName);
 						if (response.statusCode !== 200) {
 							return nodecg.log.error(response.body.error, response.body.message);
 						}
@@ -161,34 +172,17 @@ module.exports = function (nodecg) {
 	 * @returns {Promise} - A a promise resolved with "true" if the schedule was updated, "false" if unchanged.
 	 */
 	function update() {
-		const runnersPromise = request({
-			uri: nodecg.bundleConfig.useMockData ?
-				'https://dl.dropboxusercontent.com/u/6089084/gdq_mock/runners.json' :
-				'https://private.gamesdonequick.com/tracker/search',
-			qs: {
-				type: 'runner',
-				event: 19
-			},
-			json: true
-		});
-
-		const schedulePromise = request({
-			uri: nodecg.bundleConfig.useMockData ?
-				'https://dl.dropboxusercontent.com/u/6089084/gdq_mock/schedule.json' :
-				'https://private.gamesdonequick.com/tracker/search',
-			qs: {
-				type: 'run',
-				event: 19
-			},
-			json: true
-		});
+		const runnersPromise = request(optionsRunners);
+		const schedulePromise = request(optionsSchedule);
 
 		return Promise.join(runnersPromise, schedulePromise, (runnersJSON, scheduleJSON) => {
 			const formattedRunners = [];
 			runnersJSON.forEach(obj => {
 				formattedRunners[obj.pk] = {
-					stream: obj.fields.stream.split('/').filter(part => part).pop(),
-					name: obj.fields.name
+					name: obj.name,
+					twitch: obj.twitch,
+					nico: obj.nico,
+					twitter: obj.twitter
 				};
 			});
 
@@ -309,29 +303,45 @@ module.exports = function (nodecg) {
 	 * @returns {Array} - A formatted schedule.
 	 */
 	function calcFormattedSchedule(formattedRunners, scheduleJSON) {
-		return scheduleJSON.map((run, index) => {
-			const runners = run.fields.runners.slice(0, 4).map(runnerId => {
+		return scheduleJSON.data.items.map((run, index) => {
+			const runners = run.data[5].split(",").map(runnerId => {
 				return {
 					name: formattedRunners[runnerId].name,
-					stream: formattedRunners[runnerId].stream
+					twitch: formattedRunners[runnerId].twitch,
+					nico: formattedRunners[runnerId].nico,
+					twitter: formattedRunners[runnerId].twitter
 				};
 			});
 
 			return {
-				name: run.fields.display_name || 'Unknown',
-				longName: run.fields.name || 'Unknown',
-				console: run.fields.console || 'Unknown',
-				commentators: run.fields.commentators || 'Unknown',
-				category: run.fields.category || 'Any%',
-				setupTime: run.fields.setup_time,
+				name: run.data[0] || 'Unknown',
+				englishName: run.data[7] || 'Unknown',
+				console: run.data[3] || 'Unknown',
+				category: run.data[1] || 'Any%',
 				order: index + 1,
-				estimate: run.fields.run_time || 'Unknown',
-				releaseYear: run.fields.release_year || '',
+				estimate: calcEstimate(run.length_t) || 'Unknown',
+				releaseYear: run.data[4] || '',
 				runners,
-				notes: run.fields.tech_notes || '',
-				coop: run.fields.coop || false,
-				pk: run.pk
+				notes: 'WIP',
+				coop: false,
+				pk: run.data[6],
+				startTime: run.scheduled_t
 			};
 		});
+	}
+
+	function calcEstimate(inSeconds) {
+		const seconds = inSeconds % 60;
+		const minutes = ((inSeconds - seconds) / 60) % 60;
+		const hours = Math.floor(inSeconds / (60 * 60));
+		return hours + ":" + doubleZero(minutes) + ":" + doubleZero(seconds);
+
+		function doubleZero(number) {
+			if (number == 0) {
+				return "00";
+			} else {
+				return number;
+			}
+		}
 	}
 };

@@ -116,43 +116,43 @@
 
 		<div class="row">
 			<div id="run">
-				<paper-input label="Name" always-float-label value="{{name}}"
+				<paper-input label="ゲーム" always-float-label value="{{name}}"
 							 hidden$="[[calcHide('name', showingOriginal)]]"></paper-input>
-				<paper-input label="Name" always-float-label value="[[originalValues.name]]" disabled
+				<paper-input label="ゲーム" always-float-label value="[[originalValues.name]]" disabled
 							 hidden$="[[!calcHide('name', showingOriginal)]]"></paper-input>
 
-				<paper-input label="Category" always-float-label value="{{category}}"
+				<paper-input label="カテゴリ" always-float-label value="{{category}}"
 							 hidden$="[[calcHide('category', showingOriginal)]]"></paper-input>
-				<paper-input label="Category" always-float-label value="[[originalValues.category]]" disabled
+				<paper-input label="カテゴリ" always-float-label value="[[originalValues.category]]" disabled
 							 hidden$="[[!calcHide('category', showingOriginal)]]"></paper-input>
 
 
-				<paper-input label="Estimate" always-float-label value="{{estimate}}"
+				<paper-input label="予定タイム" always-float-label value="{{estimate}}"
 							 hidden$="[[calcHide('estimate', showingOriginal)]]"></paper-input>
-				<paper-input label="Estimate" always-float-label value="[[originalValues.estimate]]" disabled
+				<paper-input label="予定タイム" always-float-label value="[[originalValues.estimate]]" disabled
 							 hidden$="[[!calcHide('estimate', showingOriginal)]]"></paper-input>
 
-				<paper-input label="Console" always-float-label value="{{console}}"
+				<paper-input label="機種" always-float-label value="{{console}}"
 							 hidden$="[[calcHide('console', showingOriginal)]]"></paper-input>
-				<paper-input label="Console" always-float-label value="[[originalValues.console]]" disabled
+				<paper-input label="機種" always-float-label value="[[originalValues.console]]" disabled
 							 hidden$="[[!calcHide('console', showingOriginal)]]"></paper-input>
 
 				<div class="row" style="align-items: center;">
 					<div>
-						<paper-input label="Release Year" always-float-label value="{{releaseYear}}"
+						<paper-input label="発売年" always-float-label value="{{releaseYear}}"
 									 hidden$="[[calcHide('releaseYear', showingOriginal)]]"></paper-input>
-						<paper-input label="Release Year" always-float-label value="[[originalValues.releaseYear]]" disabled
+						<paper-input label="発売年" always-float-label value="[[originalValues.releaseYear]]" disabled
 									 hidden$="[[!calcHide('releaseYear', showingOriginal)]]"></paper-input>
 					</div>
 
 					<div>
 						<paper-checkbox checked="{{coop}}"
 										hidden$="[[calcHide('coop', showingOriginal)]]">
-							<span style="white-space: nowrap;">Co-op</span>
+							<span style="white-space: nowrap;">協力</span>
 						</paper-checkbox>
 						<paper-checkbox checked="[[originalValues.coop]]" disabled
 										hidden$="[[!calcHide('coop', showingOriginal)]]">
-							<span style="white-space: nowrap;">Co-op</span>
+							<span style="white-space: nowrap;">協力</span>
 						</paper-checkbox>
 					</div>
 				</div>
@@ -161,65 +161,121 @@
 			<div id="runners">
 				<div class="row">
 					<div>
-						<paper-input label="Runner" always-float-label value="{{runners.0.name}}"
+						<paper-input label="走者" always-float-label value="{{runners.0.name}}"
 									 hidden$="[[calcHide('runners.0.name', showingOriginal)]]"></paper-input>
-						<paper-input label="Runner" always-float-label value="[[originalValues.runners.0.name]]" disabled
+						<paper-input label="走者" always-float-label value="[[originalValues.runners.0.name]]" disabled
 									 hidden$="[[!calcHide('runners.0.name', showingOriginal)]]"></paper-input>
 					</div>
 
 					<div>
-						<paper-input label="Twitch Channel" always-float-label value="{{runners.0.stream}}"
-									 hidden$="[[calcHide('runners.0.stream', showingOriginal)]]"></paper-input>
-						<paper-input label="Twitch Channel" always-float-label value="[[originalValues.runners.0.stream]]" disabled
-									 hidden$="[[!calcHide('runners.0.stream', showingOriginal)]]"></paper-input>
+						<paper-input label="Twitch" always-float-label value="{{runners.0.twitch}}"
+									 hidden$="[[calcHide('runners.0.twitch', showingOriginal)]]"></paper-input>
+						<paper-input label="Twitch" always-float-label value="[[originalValues.runners.0.twitch]]" disabled
+									 hidden$="[[!calcHide('runners.0.twitch', showingOriginal)]]"></paper-input>
+					</div>
+
+					<div>
+						<paper-input label="ニコ生" always-float-label value="{{runners.0.nico}}"
+									 hidden$="[[calcHide('runners.0.nico', showingOriginal)]]"></paper-input>
+						<paper-input label="ニコ生" always-float-label value="[[originalValues.runners.0.nico]]" disabled
+									 hidden$="[[!calcHide('runners.0.nico', showingOriginal)]]"></paper-input>
+					</div>
+
+					<div>
+						<paper-input label="ツイッター" always-float-label value="{{runners.0.twitter}}"
+									 hidden$="[[calcHide('runners.0.twitter', showingOriginal)]]"></paper-input>
+						<paper-input label="ツイッター" always-float-label value="[[originalValues.runners.0.twitter]]" disabled
+									 hidden$="[[!calcHide('runners.0.twitter', showingOriginal)]]"></paper-input>
 					</div>
 				</div>
 
 				<div class="row">
 					<div>
-						<paper-input label="Runner 2" always-float-label value="{{runners.1.name}}"
+						<paper-input label="走者2" always-float-label value="{{runners.1.name}}"
 									 hidden$="[[calcHide('runners.1.name', showingOriginal)]]"></paper-input>
-						<paper-input label="Runner 2" always-float-label value="[[originalValues.runners.1.name]]" disabled
+						<paper-input label="走者2" always-float-label value="[[originalValues.runners.1.name]]" disabled
 									 hidden$="[[!calcHide('runners.1.name', showingOriginal)]]"></paper-input>
 					</div>
 
 					<div>
-						<paper-input label="Twitch Channel" always-float-label value="{{runners.1.stream}}"
-									 hidden$="[[calcHide('runners.1.stream', showingOriginal)]]"></paper-input>
-						<paper-input label="Twitch Channel" always-float-label value="[[originalValues.runners.1.stream]]" disabled
-									 hidden$="[[!calcHide('runners.1.stream', showingOriginal)]]"></paper-input>
+						<paper-input label="Twitch" always-float-label value="{{runners.1.twitch}}"
+									 hidden$="[[calcHide('runners.1.twitch', showingOriginal)]]"></paper-input>
+						<paper-input label="Twitch" always-float-label value="[[originalValues.runners.1.twitch]]" disabled
+									 hidden$="[[!calcHide('runners.1.twitch', showingOriginal)]]"></paper-input>
+					</div>
+
+					<div>
+						<paper-input label="ニコ生" always-float-label value="{{runners.1.nico}}"
+									 hidden$="[[calcHide('runners.1.nico', showingOriginal)]]"></paper-input>
+						<paper-input label="ニコ生" always-float-label value="[[originalValues.runners.1.nico]]" disabled
+									 hidden$="[[!calcHide('runners.1.nico', showingOriginal)]]"></paper-input>
+					</div>
+
+					<div>
+						<paper-input label="ツイッター" always-float-label value="{{runners.1.twitter}}"
+									 hidden$="[[calcHide('runners.1.twitter', showingOriginal)]]"></paper-input>
+						<paper-input label="ツイッター" always-float-label value="[[originalValues.runners.1.twitter]]" disabled
+									 hidden$="[[!calcHide('runners.1.twitter', showingOriginal)]]"></paper-input>
 					</div>
 				</div>
 
 				<div class="row">
 					<div>
-						<paper-input label="Runner 3" always-float-label value="{{runners.2.name}}"
+						<paper-input label="走者3" always-float-label value="{{runners.2.name}}"
 									 hidden$="[[calcHide('runners.2.name', showingOriginal)]]"></paper-input>
-						<paper-input label="Runner 3" always-float-label value="[[originalValues.runners.2.name]]" disabled
+						<paper-input label="走者3" always-float-label value="[[originalValues.runners.2.name]]" disabled
 									 hidden$="[[!calcHide('runners.2.name', showingOriginal)]]"></paper-input>
 					</div>
 
 					<div>
-						<paper-input label="Twitch Channel" always-float-label value="{{runners.2.stream}}"
-									 hidden$="[[calcHide('runners.2.stream', showingOriginal)]]"></paper-input>
-						<paper-input label="Twitch Channel" always-float-label value="[[originalValues.runners.2.stream]]" disabled
-									 hidden$="[[!calcHide('runners.2.stream', showingOriginal)]]"></paper-input>
+						<paper-input label="Twitch" always-float-label value="{{runners.2.twitch}}"
+									 hidden$="[[calcHide('runners.2.twitch', showingOriginal)]]"></paper-input>
+						<paper-input label="Twitch" always-float-label value="[[originalValues.runners.2.twitch]]" disabled
+									 hidden$="[[!calcHide('runners.2.twitch', showingOriginal)]]"></paper-input>
+					</div>
+
+					<div>
+						<paper-input label="ニコ生" always-float-label value="{{runners.2.nico}}"
+									 hidden$="[[calcHide('runners.2.nico', showingOriginal)]]"></paper-input>
+						<paper-input label="ニコ生" always-float-label value="[[originalValues.runners.2.nico]]" disabled
+									 hidden$="[[!calcHide('runners.2.nico', showingOriginal)]]"></paper-input>
+					</div>
+
+					<div>
+						<paper-input label="ツイッター" always-float-label value="{{runners.2.twitter}}"
+									 hidden$="[[calcHide('runners.2.twitter', showingOriginal)]]"></paper-input>
+						<paper-input label="ツイッター" always-float-label value="[[originalValues.runners.2.twitter]]" disabled
+									 hidden$="[[!calcHide('runners.2.twitter', showingOriginal)]]"></paper-input>
 					</div>
 				</div>
 
 				<div class="row">
 					<div>
-						<paper-input label="Runner 4" always-float-label value="{{runners.3.name}}"
+						<paper-input label="走者4" always-float-label value="{{runners.3.name}}"
 									 hidden$="[[calcHide('runners.3.name', showingOriginal)]]"></paper-input>
-						<paper-input label="Runner 4" always-float-label value="[[originalValues.runners.3.name]]" disabled
+						<paper-input label="走者4" always-float-label value="[[originalValues.runners.3.name]]" disabled
 									 hidden$="[[!calcHide('runners.3.name', showingOriginal)]]"></paper-input>
 					</div>
 
 					<div>
-						<paper-input label="Twitch Channel" always-float-label value="{{runners.3.stream}}"
-									 hidden$="[[calcHide('runners.3.stream', showingOriginal)]]"></paper-input>
-						<paper-input label="Twitch Channel" always-float-label value="[[originalValues.runners.3.stream]]" disabled
-									 hidden$="[[!calcHide('runners.3.stream', showingOriginal)]]"></paper-input>
+						<paper-input label="Twitch" always-float-label value="{{runners.3.twitch}}"
+									 hidden$="[[calcHide('runners.3.twitch', showingOriginal)]]"></paper-input>
+						<paper-input label="Twitch" always-float-label value="[[originalValues.runners.3.twitch]]" disabled
+									 hidden$="[[!calcHide('runners.3.twitch', showingOriginal)]]"></paper-input>
+					</div>
+
+					<div>
+						<paper-input label="ニコ生" always-float-label value="{{runners.3.nico}}"
+									 hidden$="[[calcHide('runners.3.nico', showingOriginal)]]"></paper-input>
+						<paper-input label="ニコ生" always-float-label value="[[originalValues.runners.3.nico]]" disabled
+									 hidden$="[[!calcHide('runners.3.nico', showingOriginal)]]"></paper-input>
+					</div>
+
+					<div>
+						<paper-input label="ツイッター" always-float-label value="{{runners.3.twitter}}"
+									 hidden$="[[calcHide('runners.3.twitter', showingOriginal)]]"></paper-input>
+						<paper-input label="ツイッター" always-float-label value="[[originalValues.runners.3.twitter]]" disabled
+									 hidden$="[[!calcHide('runners.3.twitter', showingOriginal)]]"></paper-input>
 					</div>
 				</div>
 			</div>
@@ -227,8 +283,8 @@
 
 		<div id="buttons">
 			<paper-button class="nodecg-danger" raised on-tap="resetRun" on-mouseover="showOriginal"
-						  on-mouseout="hideOriginal">RESET DATA TO ORIGINAL</paper-button>
-			<paper-button class="nodecg-success" raised on-tap="applyChanges">APPLY CHANGES</paper-button>
+						  on-mouseout="hideOriginal">全て元々にリセットする</paper-button>
+			<paper-button class="nodecg-success" raised on-tap="applyChanges">変更を適用</paper-button>
 		</div>
 	</template>
 

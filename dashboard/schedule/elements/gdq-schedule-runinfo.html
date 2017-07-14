@@ -40,7 +40,7 @@
 			#name .value {
 				font-weight: 500;
 				font-size: 18px;
-				height: 2.4em;
+				height: 2.8em;
 				word-wrap: break-word;
 				word-wrap: break-word;
 				white-space: normal;
@@ -112,7 +112,7 @@
 		<div id="label">[[label]] (#[[order]])</div>
 
 		<section id="name" class$="padded [[calcModified(originalValues.name)]]">
-			<label>Name</label>
+			<label>ゲーム</label>
 			<span class="value" title="[[calcName(name)]]">[[calcName(name)]]</span>
 		</section>
 
@@ -120,19 +120,19 @@
 
 		<section id="runners">
 			<div class$="padded runner [[calcModified(originalValues.runners.0)]]" style="margin-bottom: 12px;">
-				<label>Runner</label>
+				<label>走者</label>
 				<span class="value" title="[[runners.0.name]]">[[runners.0.name]]&#8203;</span>
 			</div>
 			<div class$="padded runner [[calcModified(originalValues.runners.1)]]" style="margin-bottom: 12px;">
-				<label>Runner 2</label>
+				<label>走者2</label>
 				<span class="value" title="[[runners.1.name]]">[[runners.1.name]]&#8203;</span>
 			</div>
 			<div class$="padded runner [[calcModified(originalValues.runners.2)]]">
-				<label>Runner 3</label>
+				<label>走者3</label>
 				<span class="value" title="[[runners.2.name]]">[[runners.2.name]]&#8203;</span>
 			</div>
 			<div class$="padded runner [[calcModified(originalValues.runners.3)]]">
-				<label>Runner 4</label>
+				<label>走者4</label>
 				<span class="value" title="[[runners.3.name]]">[[runners.3.name]]&#8203;</span>
 			</div>
 		</section>
@@ -140,7 +140,7 @@
 		<div class="divider"></div>
 
 		<section class$="padded [[calcModified(originalValues.category)]]">
-			<label>Category</label>
+			<label>カテゴリ</label>
 			<span class="value" title="[[category]]">[[category]]&#8203;</span>
 		</section>
 
@@ -148,19 +148,19 @@
 
 		<section id="misc">
 			<div class$="padded [[calcModified(originalValues.estimate)]]">
-				<label>Estimate</label>
+				<label>タイム</label>
 				<span class="value">[[estimate]]&#8203;</span>
 			</div>
 			<div id="console" class$="padded [[calcModified(originalValues.console)]]">
-				<label>Console</label>
+				<label>機種</label>
 				<span title="[[console]]" class="value">[[console]]&#8203;</span>
 			</div>
 			<div class$="padded [[calcModified(originalValues.releaseYear)]]">
-				<label>Release Year</label>
+				<label>発売年</label>
 				<span class="value">[[releaseYear]]&#8203;</span>
 			</div>
 			<div class$="padded [[calcModified(originalValues.coop)]]">
-				<label>Co-op</label>
+				<label>協力</label>
 				<span class="value">[[coop]]&#8203;</span>
 			</div>
 		</section>
@@ -168,7 +168,7 @@
 		<div class="divider"></div>
 
 		<section id="notes" class="padded">
-			<label>Tech Notes</label>
+			<label>技術メモ</label>
 			<div class="value"></div>
 		</section>
 	</template>

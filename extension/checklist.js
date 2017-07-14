@@ -7,25 +7,20 @@ const obsWebsocket = require('./obs-websocket');
 module.exports = function (nodecg) {
 	// Create defaults array
 	const checklistDefault = {
-		extraContent: [
-			{name: 'Check for Advertisement', complete: false},
-			{name: 'Check for Interview', complete: false}
+		dashboardDuties: [
+			{name: 'タイムをメモる', complete: false},
+			{name: 'タイマーをリセット', complete: false},
+			{name: '次のゲームを選ぶ', complete: false},
+			{name: '走者の情報を確認', complete: false},
+			{name: 'ゲームの情報を確認', complete: false},
+			{name: '技術メモ確認', complete: false}
 		],
-		techStationDuties: [
-			{name: 'Reset Timer', complete: false},
-			{name: 'Stop/Start Recording', complete: false},
-			{name: 'Check Tech Notes', complete: false},
-			{name: 'Stream Layout', complete: false},
-			{name: 'Runner Info/Position', complete: false},
-			{name: 'Camera', complete: false}
-		],
-		otherDuties: [
-			{name: 'Cue Break Music', complete: false},
-			{name: 'Runner Game Audio', complete: false},
-			{name: 'TVs have Video', complete: false},
-			{name: 'Commentator Mics', complete: false},
-			{name: 'Stream Audio', complete: false},
-			{name: 'Steam Notifications Off', complete: false}
+		obsDuties: [
+			{name: 'レイアウトを選択', complete: false},
+			{name: '走者とゲームが一致', complete: false},
+			{name: 'ゲーム画面をクロップ', complete: false},
+			{name: 'ゲームと声のバランス', complete: false},
+			{name: '録画を停止/再開', complete: false}
 		]
 	};
 
