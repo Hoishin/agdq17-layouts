@@ -19,12 +19,16 @@ module.exports = function (nodecg) {
 	const nextRun = nodecg.Replicant('nextRun', {defaultValue: {}});
 
 	const optionsRunners = {
-		uri: "https://puu.sh/wihYz/26372ce983.json",
+		uri: "https://puu.sh/wLrXD/340ee3d69d.json",
 		json: true
 	};
 	const optionsSchedule = {
-		uri: "https://horaro.org/-/api/v1/schedules/1d11q6feml6eb87a92",
-		json: true
+		uri: "https://horaro.org/-/api/v1/schedules/56110ed4za143o7aa8",
+		qs: {
+			hiddenkey: 'show'
+		},
+		json: true,
+
 	};
 
 	// If a "streamTitle" template has been defined in the bundle config, and if lfg-twitch api is present,
@@ -315,12 +319,12 @@ module.exports = function (nodecg) {
 
 			return {
 				name: run.data[0] || 'Unknown',
-				englishName: run.data[7] || 'Unknown',
+				englishName: run.data[4] || 'Unknown',
 				console: run.data[3] || 'Unknown',
-				category: run.data[1] || 'Any%',
+				category: run.data[2] || 'Any%',
 				order: index + 1,
 				estimate: calcEstimate(run.length_t) || 'Unknown',
-				releaseYear: run.data[4] || '',
+				releaseYear: '',
 				runners,
 				notes: 'WIP',
 				coop: false,
