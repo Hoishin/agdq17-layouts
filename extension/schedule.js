@@ -326,7 +326,7 @@ module.exports = function (nodecg) {
 				estimate: calcEstimate(run.length_t) || 'Unknown',
 				releaseYear: '',
 				runners,
-				notes: 'WIP',
+				notes: run.data[7] || 'break',
 				coop: false,
 				pk: run.data[6],
 				startTime: run.scheduled_t
