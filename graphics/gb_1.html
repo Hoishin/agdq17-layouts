@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gameboy, 1 Player</title>
+	<link rel="stylesheet" href="style/layout.css">
+	<script src="components/gsap/src/minified/TweenMax.min.js"></script>
+	<link rel="import" href="elements/gdq-nameplate/gdq-nameplate.html">
+	<link rel="import" href="elements/gdq-runinfo/gdq-runinfo.html">
+	<link rel="import" href="elements/gdq-timer/gdq-timer.html">
+	<link rel="import" href="elements/gdq-twitter/gdq-twitter.html">
+	<link rel="import" href="elements/gdq-sponsors/gdq-sponsors.html">
+	<style is="custom-style">
+		gdq-nameplate {
+			top: 330px;
+			right: 0px;
+			width: 480px;
+		}
+
+		gdq-runinfo {
+			right: 0;
+			top: 0;
+			width: 480px;
+			height: 210px;
+		}
+
+		gdq-timer {
+			right: 0;
+			top: 230px;
+			height: 57px;
+			width: 480px;
+		}
+
+		gdq-twitter {
+			bottom: 0;
+			right: 0;
+			width: 480px;
+			height: 220px;
+
+			--gdq-twitter-body: {
+				font-size: 25px;
+			};
+			--gdq-twitter-namebar: {
+				width: 400px;
+				height: 50px;
+				margin-bottom: -12px;
+				padding-bottom: 12px;
+				font-size: 21px;
+			};
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<img id="background" src="img/backgrounds/gb_1.png">
+		<gdq-runinfo max-name-size="36"></gdq-runinfo>
+		<gdq-timer></gdq-timer>
+		<gdq-sponsors></gdq-sponsors>
+		<gdq-twitter></gdq-twitter>
+		<gdq-nameplate index="0"></gdq-nameplate>
+	</div>
+
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			TweenLite.to(document.body, 0.333, {
+				opacity: 1,
+				ease: Power1.easeOut
+			});
+		});
+	</script>
+</body>
+</html>

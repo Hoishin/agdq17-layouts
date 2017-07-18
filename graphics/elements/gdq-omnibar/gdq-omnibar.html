@@ -7,7 +7,6 @@
 				display: flex;
 				width: 1280px;
 				height: 55px;
-				background: url("img/background.png");
 				color: white;
 			}
 
@@ -20,31 +19,13 @@
 				flex-shrink: 0;
 			}
 
-			#gdqLogo.animate {
-				animation: shine 767ms steps(46);
-			}
-
-			@keyframes shine {
-				from { background-position: 0; }
-				to { background-position: -5474px; } /* <-- width of spritesheet */
-			}
-
 			#body {
 				display: flex;
 				flex-grow: 1;
 				height: 100%;
 				overflow: hidden;
 				position: relative;
-			}
-
-			#topBorder {
-				position: absolute;
-				top: 0;
-				left: 0;
-				height: 1px;
-				width: 100%;
-				background: black;
-				z-index: 4;
+				outline: #00FF00 dotted thick;
 			}
 
 			#labelShadow {
@@ -252,7 +233,6 @@
 			</div>
 		</div>
 		<img id="charityLogo" src="img/logo-charity.png">
-		<div id="topBorder"></div>
 	</template>
 
 	<script src="gdq-omnibar.js"></script>

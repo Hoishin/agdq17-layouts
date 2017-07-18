@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Standard, 4 Player</title>
+	<link rel="stylesheet" href="style/layout.css">
+	<script src="components/gsap/src/minified/TweenMax.min.js"></script>
+	<link rel="import" href="elements/gdq-nameplate/gdq-nameplate.html">
+	<link rel="import" href="elements/gdq-runinfo/gdq-runinfo.html">
+	<link rel="import" href="elements/gdq-timer/gdq-timer.html">
+	<link rel="import" href="elements/gdq-twitter/gdq-twitter.html">
+	<link rel="import" href="elements/gdq-sponsors/gdq-sponsors.html">
+	<style is="custom-style">
+		gdq-nameplate {
+			--gdq-nameplate-width: 260px;
+		}
+
+		gdq-nameplate:nth-of-type(1) {
+			top: 293px;
+			left: 0;
+		}
+
+		gdq-nameplate:nth-of-type(2) {
+			top: 293px;
+			right: 260px;
+		}
+
+		gdq-nameplate:nth-of-type(3) {
+			bottom: 293px;
+			left: 260px;
+			flex-direction: column-reverse;
+		}
+
+		gdq-nameplate:nth-of-type(4) {
+			bottom: 293px;
+			right: 0;
+			flex-direction: column-reverse;
+		}
+
+		gdq-runinfo {
+			left: 520px;
+			right: 520px;
+			top: 0px;
+			height: 200px;
+		}
+
+		gdq-timer {
+			left: 520px;
+			right: 520px;
+			top: 320px;
+			bottom: 320px;
+			height: 53px;
+		}
+
+		gdq-twitter {
+			bottom: 0;
+			right: 520px;
+			left: 520px;
+			height: 293px;
+			width: 240px;
+
+			--gdq-twitter-body: {
+				font-size: 25px;
+				padding-top: 3px;
+			};
+			--gdq-twitter-namebar: {
+				width: 293px;
+				height: 50px;
+				margin-bottom: -12px;
+				padding-bottom: 12px;
+				font-size: 21px;
+			};
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<img id="background" src="img/backgrounds/wide_4.png">
+		<gdq-runinfo></gdq-runinfo>
+		<gdq-timer></gdq-timer>
+		<gdq-nameplate index="0"></gdq-nameplate>
+		<gdq-nameplate index="1"></gdq-nameplate>
+		<gdq-nameplate index="2"></gdq-nameplate>
+		<gdq-nameplate index="3"></gdq-nameplate>
+		<gdq-twitter></gdq-twitter>
+	</div>
+
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			TweenLite.to(document.body, 0.333, {
+				opacity: 1,
+				ease: Power1.easeOut
+			});
+		});
+	</script>
+</body>
+</html>

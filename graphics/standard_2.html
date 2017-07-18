@@ -12,49 +12,45 @@
 	<link rel="import" href="elements/gdq-sponsors/gdq-sponsors.html">
 	<style is="custom-style">
 		gdq-nameplate {
-			top: 493px;
-			--gdq-nameplate-width: 349px;
+			top: 477px;
+			--gdq-nameplate-width: 415px;
 		}
-
 		gdq-nameplate:nth-of-type(1) {
-			right: 855px;
+			left: 0px;
 		}
-
 		gdq-nameplate:nth-of-type(2) {
-			left: 855px;
+			right: 0px;
 		}
 
 		gdq-runinfo {
-			left: 12px;
-			bottom: 38px;
-			width: 413px;
-			height: 100px;
-			--gdq-runinfo-misc-height: 29px;
+			top: 477px;
+			left: 415px;
+			right: 415px;
+			height: 150px;
+			border-left: 4px solid black;
+			border-right: 4px solid black;
 		}
 
 		gdq-timer {
-			left: 0;
+			left: 415px;
+			right: 415px;
 			bottom: 0;
-			height: 38px;
-			width: 425px;
-			padding-left: 12px;
-			font-size: 33px;
-			padding-bottom: 7px;
+			border-left: 4px solid black;
+			border-right: 4px solid black;
 		}
 
 		gdq-twitter {
 			bottom: 0;
-			right: 0;
-			width: 426px;
-			height: 180px;
-			padding-right: 12px;
+			left: 0;
+			width: 415px;
+			height: 150px;
 
 			--gdq-twitter-body: {
 				font-size: 25px;
-				padding-top: 50px;
+				padding-top: 3px;
 			};
 			--gdq-twitter-namebar: {
-				width: 344px;
+				width: 415px;
 				height: 50px;
 				margin-bottom: -12px;
 				padding-bottom: 12px;
@@ -74,14 +70,13 @@
 </head>
 <body>
 	<div id="container">
-		<img id="background" src="img/backgrounds/standard_2_bg.png">
-		<gdq-runinfo max-name-size="28" single-line-name></gdq-runinfo>
+		<img id="background" src="img/backgrounds/standard_2.png">
+		<gdq-runinfo></gdq-runinfo>
 		<gdq-timer></gdq-timer>
-		<gdq-sponsors></gdq-sponsors>
 		<gdq-twitter></gdq-twitter>
-		<gdq-nameplate index="0" attach-right></gdq-nameplate>
-		<gdq-nameplate index="1" attach-left></gdq-nameplate>
-		<img id="foreground" src="img/backgrounds/standard_2_fg.png">
+		<gdq-nameplate index="0"></gdq-nameplate>
+		<gdq-nameplate index="1"></gdq-nameplate>
+		<img id="foreground" src="img/backgrounds/logo/standard_1.png">
 	</div>
 
 	<script>

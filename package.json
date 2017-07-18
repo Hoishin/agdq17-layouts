@@ -99,75 +99,40 @@
       {
         "file": "standard_2.html",
         "width": 1280,
-        "height": 665
+        "height": 720
       },
       {
-        "file": "standard_3.html",
+        "file": "wide_1.html",
         "width": 1280,
-        "height": 665
+        "height": 720
       },
       {
-        "file": "standard_4.html",
+        "file": "wide_2.html",
         "width": 1280,
-        "height": 665
+        "height": 720
       },
       {
-        "file": "widescreen_1.html",
+        "file": "wide_4.html",
         "width": 1280,
-        "height": 665
+        "height": 720
       },
       {
-        "file": "widescreen_2.html",
+        "file": "gb_1.html",
         "width": 1280,
-        "height": 665
+        "height": 720
       },
       {
         "file": "gba_1.html",
         "width": 1280,
-        "height": 665
-      },
-      {
-        "file": "gba_2.html",
-        "width": 1280,
-        "height": 665
-      },
-      {
-        "file": "gameboy_1.html",
-        "width": 1280,
-        "height": 665
-      },
-      {
-        "file": "gameboy_3.html",
-        "width": 1280,
-        "height": 665
-      },
-      {
-        "file": "gameboy_4.html",
-        "width": 1280,
-        "height": 665
-      },
-      {
-        "file": "3ds.html",
-        "width": 1280,
-        "height": 665
+        "height": 720
       },
       {
         "file": "ds.html",
         "width": 1280,
-        "height": 665
+        "height": 720
       },
       {
-        "file": "ds_vertical.html",
-        "width": 1280,
-        "height": 665
-      },
-      {
-        "file": "omnibar.html",
-        "width": 1280,
-        "height": 55
-      },
-      {
-        "file": "test_break.html",
+        "file": "3ds.html",
         "width": 1280,
         "height": 720
       }

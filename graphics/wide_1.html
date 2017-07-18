@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Widescreen, 1 Player</title>
+	<link rel="stylesheet" href="style/layout.css">
+	<script src="components/gsap/src/minified/TweenMax.min.js"></script>
+	<link rel="import" href="elements/gdq-nameplate/gdq-nameplate.html">
+	<link rel="import" href="elements/gdq-runinfo/gdq-runinfo.html">
+	<link rel="import" href="elements/gdq-timer/gdq-timer.html">
+	<link rel="import" href="elements/gdq-twitter/gdq-twitter.html">
+	<link rel="import" href="elements/gdq-sponsors/gdq-sponsors.html">
+	<style is="custom-style">
+		gdq-nameplate {
+			top: 585px;
+			left: 0px;
+			--gdq-nameplate-width: 520px;
+		}
+
+		gdq-runinfo {
+			right: 240px;
+			top: 585px;
+			bottom: 0;
+			left: 520px;
+			border-left: 4px solid black;
+			border-right: 4px solid black;
+		}
+
+		gdq-timer {
+			right: 0px;
+			top: 200px;
+			width: 240px;
+		}
+
+		gdq-twitter {
+			bottom: 0;
+			right: 0;
+			width: 240px;
+			height: 360px;
+
+			--gdq-twitter-body: {
+				font-size: 19px;
+				padding: 20px 25px 0 25px;
+			};
+			--gdq-twitter-namebar: {
+				width: 240px;
+				height: 40px;
+				padding-bottom: 2px;
+				padding-left: 12px;
+				font-size: 21px;
+			};
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<img id="background" src="img/backgrounds/wide_1.png">
+		<gdq-runinfo></gdq-runinfo>
+		<gdq-timer></gdq-timer>
+		<gdq-twitter></gdq-twitter>
+		<gdq-nameplate index="0"></gdq-nameplate>
+	</div>
+
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			TweenLite.to(document.body, 0.333, {
+				opacity: 1,
+				ease: Power1.easeOut
+			});
+		});
+	</script>
+</body>
+</html>

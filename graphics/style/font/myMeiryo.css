@@ -1,0 +1,16 @@
+@font-face {
+	font-family: myMeiryo;
+	src: url(font/meiryo.ttc)
+}
+
+@font-face {
+	font-family: myMeiryo;
+	src: url(font/meiryoI.ttc);
+	font-style: italic;
+}
+
+@font-face {
+	font-family: myMeiryo;
+	src: url(font/meiryoB.ttc);
+	font-weight: bold;
+}

@@ -1,4 +1,5 @@
 <link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../imports/textFit.html">
 
 <dom-module id="gdq-timer">
 	<template>
@@ -6,42 +7,30 @@
 			:host {
 				position: absolute;
 				display: flex;
-				justify-content: center;
-				align-items: center;
-				border-top: 1px solid black;
-				box-sizing: border-box;
-				font-size: 46px;
-				background: url("img/bg.png") center repeat-y,
-							linear-gradient(to right, #20011f 0%,#370135 13.5%,#9c4d99 50%,#370135 86.5%,#20011f 100%);
-				background-blend-mode: overlay, normal;
+				flex-direction: column;
+				justify-content: space-around;
+				white-space: nowrap;
+			}
+
+			#timer {
+				text-align: center;
+				flex-grow: 1;
+				font-size: 50px;
 				font-weight: 700;
-				font-variant-numeric: tabular-nums;
-				font-feature-settings: "tnum";
 			}
-
-			:host[paused] {
-				background: url("img/bg.png") center repeat-y,
-							linear-gradient(to right, #212121 0%,#353535 13.5%,#9d9d9d 50%,#353535 86.5%,#212121 100%);
-			}
-
-			:host[finished] {
-				background: url("img/bg.png") center repeat-y,
-							linear-gradient(to right, #012006 0%,#013705 13.5%,#2ab641 50%,#013705 86.5%,#012006 100%);
-			}
-
-			#startFlash {
-				position: absolute;
+			#estimate {
+				margin-top: -12px;
 				display: flex;
-				background-color: #a5ffa9;
-				width: 100%;
-				height: 100%;
-				bottom: 0;
-				mix-blend-mode: color-dodge;
-				opacity: 0;
+				justify-content: space-around;
+				height: 30px;
+				white-space: nowrap;
+				flex-shrink: 0;
+				font-weight: 300;
 			}
 		</style>
-		<div id="startFlash"></div>
-		<span class="shadow">[[time]]</span>
+
+		<div id="timer" class="shadow">[[time]]</div>
+		<div id="estimate" class="shadow"></div>
 	</template>
 
 	<script src="gdq-timer.js"></script>

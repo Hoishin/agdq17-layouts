@@ -4,6 +4,7 @@
 	const total = nodecg.Replicant('total');
 	const currentRun = nodecg.Replicant('currentRun');
 	const nextRun = nodecg.Replicant('nextRun');
+	const schedule = nodecg.Replicant('schedule')
 	const displayDuration = nodecg.bundleConfig.displayDuration;
 	const currentBids = nodecg.Replicant('currentBids');
 	const currentPrizes = nodecg.Replicant('currentPrizes');
@@ -41,15 +42,6 @@
 
 		ready() {
 			this.tl = new TimelineLite({autoRemoveChildren: true});
-
-			// Play the shine animation every 2 minutes.
-			setInterval(() => {
-				this.$.gdqLogo.classList.add('animate');
-
-				setTimeout(() => {
-					this.$.gdqLogo.classList.remove('animate');
-				}, 1000);
-			}, 120 * 1000);
 
 			this.$.totalTextAmount.rawValue = 0;
 			total.on('change', this.totalChanged.bind(this));
@@ -276,7 +268,7 @@
 			if (upNextRun) {
 				this.tl.to({}, 0.3, {
 					onStart: this.showLabel.bind(this),
-					onStartParams: ['UP NEXT', '28px']
+					onStartParams: ['今後のゲーム', '20px']
 				});
 
 				// GSAP is dumb with `call` sometimes. Putting this in a near-zero duration tween seems to be more reliable.
@@ -294,15 +286,28 @@
 								concatenatedRunners = upNextRun.runners[0].name;
 							} else {
 								concatenatedRunners = upNextRun.runners.slice(1).reduce((prev, curr, index, array) => {
-									if (index === array.length - 1) {
-										return `${prev} & ${curr.name}`;
-									}
-
 									return `${prev}, ${curr.name}`;
 								}, upNextRun.runners[0].name);
 							}
 
-							this.showMainLine1(concatenatedRunners);
+							const currentTime = new Date()
+							const secondsToNext = upNextRun.startTime - currentTime.getTime() / 1000
+							const daysToNext = Math.floor(secondsToNext / 60 / 60 / 24)
+							const hoursToNext = Math.floor(secondsToNext / 60 / 60) % 24
+							const minutesToNext = Math.floor(secondsToNext / 60) % 60
+
+							let formattedTime = '(あと'
+							if (daysToNext > 0) {
+								formattedTime += daysToNext + '日'
+							}
+							if (hoursToNext > 0) {
+								formattedTime += hoursToNext + '時間'
+							}
+							if (minutesToNext > 0) {
+								formattedTime += minutesToNext + '分)'
+							}
+
+							this.showMainLine1('走者: ' + concatenatedRunners + formattedTime);
 							this.showMainLine2(`${upNextRun.name.replace('\\n', ' ').trim()} - ${upNextRun.category}`);
 						} else {
 							this.tl.clear();
