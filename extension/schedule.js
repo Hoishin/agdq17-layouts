@@ -341,8 +341,8 @@ module.exports = function (nodecg) {
 		return hours + ":" + doubleZero(minutes) + ":" + doubleZero(seconds);
 
 		function doubleZero(number) {
-			if (number == 0) {
-				return "00";
+			if (number < 10) {
+				return "0" + number
 			} else {
 				return number;
 			}
