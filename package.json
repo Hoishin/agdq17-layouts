@@ -3,6 +3,8 @@
   "description": "The on-stream graphics for RTA in Japan.",
   "version": "1.0.0",
   "contributors": [
+    "Alex Van Camp <email@alexvan.camp>",
+    "Chris Hanel <chrishanel@gmail.com>",
     "Hoishin <hoishinxii@gmail.com>"
   ],
   "dependencies": {
