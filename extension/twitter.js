@@ -19,7 +19,7 @@ module.exports = function (nodecg) {
 		tweets.value = [];
 	});
 	*/
-	
+
 	let userStream;
 
 	/**
@@ -169,7 +169,7 @@ module.exports = function (nodecg) {
 		tweet.text = tweet.text.replace(/\n/ig, ' ');
 
 		// Highlight the #AGDQ2017 hashtag.
-		tweet.text = tweet.text.replace(/#agdq2017/ig, '<span class="hashtag">#AGDQ2017</span>');
+		tweet.text = tweet.text.replace(/#rtainjapan/ig, '<span class="hashtag">#RTAinJapan</span>');
 
 		// Add the tweet to the list
 		tweets.value.push(tweet);
