@@ -177,7 +177,7 @@
 			this.$.namesNico.classList.add('hidden');
 			this.$.namesTwitter.classList.add('hidden');
 			this.$.timeResult.classList.remove('hidden');
-			TweenLite.from(this.$.names, NAME_FADE_DURATION, {y: -30, ease: NAME_FADE_IN_EASE});
+			TweenLite.from(this.$.names, NAME_FADE_DURATION, {y: -30, opacity: 1, ease: NAME_FADE_IN_EASE});
 		},
 
 		hideTime() {
