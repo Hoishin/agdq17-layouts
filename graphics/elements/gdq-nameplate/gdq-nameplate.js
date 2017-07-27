@@ -62,7 +62,7 @@
 				},
 				opacity: 0,
 				ease: NAME_FADE_OUT_EASE
-			}, '+=3');
+			}, '+=10');
 
 			// Attach replicant change listeners.
 			currentRun.on('change', this.currentRunChanged.bind(this));
@@ -146,7 +146,7 @@
 
 		fitName() {
 			Polymer.dom.flush();
-			const MAX_NAME_WIDTH = this.$.names.clientWidth - 32;
+			const MAX_NAME_WIDTH = this.$.name.clientWidth - 20;
 			const nameWidth = this.$.namesName.clientWidth;
 			if (nameWidth > MAX_NAME_WIDTH) {
 				TweenLite.set(this.$.namesName, {scaleX: MAX_NAME_WIDTH / nameWidth});
@@ -161,6 +161,9 @@
 			if (twitchWidth > MAX_TWITCH_WIDTH) {
 				const scale = MAX_TWITCH_WIDTH / twitchWidth;
 				const newWidth = twitchWidth * scale;
+				if (typeof newWidth === 'number' && !isNaN(newWidth)) {
+					TweenLite.set(twitchSpan, {scaleX: scale, width: newWidth});
+				}
 			} else {
 				TweenLite.set(twitchSpan, {scaleX: 1});
 			}
@@ -177,7 +180,8 @@
 			this.$.namesNico.classList.add('hidden');
 			this.$.namesTwitter.classList.add('hidden');
 			this.$.timeResult.classList.remove('hidden');
-			TweenLite.from(this.$.names, NAME_FADE_DURATION, {y: -30, opacity: 1, ease: NAME_FADE_IN_EASE});
+			this.$.names.style.opacity = 1;
+			TweenLite.from(this.$.names, NAME_FADE_DURATION, {y: -30, ease: NAME_FADE_IN_EASE});
 		},
 
 		hideTime() {

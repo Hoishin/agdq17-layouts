@@ -16,6 +16,7 @@
     "lodash.assign": "^4.0.9",
     "lodash.debounce": "^4.0.6",
     "lodash.merge": "^4.4.0",
+    "nanotimer": "^0.3.14",
     "numeral": "^1.5.3",
     "object-path": "^0.11.3",
     "obs-websocket-js": "^0.3.3",

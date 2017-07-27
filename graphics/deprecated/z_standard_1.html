@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Standard, 1 Player</title>
+	<link rel="stylesheet" href="style/layout.css">
+	<script src="components/gsap/src/minified/TweenMax.min.js"></script>
+	<link rel="import" href="elements/gdq-nameplate/gdq-nameplate.html">
+	<link rel="import" href="elements/gdq-runinfo/gdq-runinfo.html">
+	<link rel="import" href="elements/gdq-timer/gdq-timer.html">
+	<link rel="import" href="elements/gdq-twitter/gdq-twitter.html">
+</head>
+<body>
+	<div id="container">
+		<img id="background" src="img/backgrounds/standard_1.png">
+		<layout-app></layout-app>
+	</div>
+
+	<dom-module id="layout-app">
+		<template>
+			<style>
+				gdq-runinfo {
+					right: 0;
+					top: 0;
+					width: 320px;
+					height: 200px;
+					--gdq-runinfo-misc-height: 35px;
+				}
+
+				#bottomRight {
+					display: flex;
+					flex-direction: column;
+					position: absolute;
+					right: 0px;
+					top: 200px;
+					width: 320px;
+					height: 410px;
+				}
+
+				gdq-timer {
+					position: relative;
+					width: 100%;
+					padding-top: 0px;
+				}
+
+				#runners {
+					top: 20px;
+					position: relative;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+				}
+				gdq-nameplate {
+					position: relative;
+					--gdq-nameplate-width: 320px;
+				}
+
+				#sponsorsAndTwitter {
+					position: relative;
+					width: 100%;
+					flex-grow: 1;
+					top: 20px;
+				}
+
+				gdq-twitter {
+					--gdq-twitter-body: {
+						font-size: 25px;
+						padding-top: 5px;
+					};
+					--gdq-twitter-namebar: {
+						width: 344px;
+						height: 50px;
+						margin-bottom: -12px;
+						padding-bottom: 12px;
+						font-size: 21px;
+					};
+				}
+
+				gdq-twitter {
+					width: 100%;
+					height: 100%;
+				}
+
+				/* One runner */
+				:host[num-runners="1"] gdq-nameplate:not([index="0"]) {
+					display: none;
+				}
+			</style>
+
+
+			<gdq-runinfo></gdq-runinfo>
+			<div id="bottomRight">
+				<gdq-timer></gdq-timer>
+				<div id="runners">
+					<gdq-nameplate index="0"></gdq-nameplate>
+					<gdq-nameplate index="1"></gdq-nameplate>
+					<gdq-nameplate index="2"></gdq-nameplate>
+					<gdq-nameplate index="3"></gdq-nameplate>
+				</div>
+				<div id="sponsorsAndTwitter">
+					<gdq-twitter></gdq-twitter>
+				</div>
+			</div>
+		</template>
+
+		<script>
+			const currentRun = nodecg.Replicant('currentRun');
+
+			Polymer({
+				is: 'layout-app',
+
+				properties: {
+					numRunners: {
+						type: Number,
+						reflectToAttribute: true,
+						value: 1
+					}
+				},
+
+				ready() {
+					currentRun.on('change', newVal => {
+						if (!newVal) {
+							return;
+						}
+
+						if (newVal.runners.length !== 3) {
+							this.numRunners = newVal.runners.length;
+						}
+					});
+				}
+			});
+		</script>
+	</dom-module>
+
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			TweenLite.to(document.body, 0.333, {
+				opacity: 1,
+				ease: Power1.easeOut
+			});
+		});
+	</script>
+</body>
+</html>

@@ -14,41 +14,46 @@
 		gdq-nameplate {
 			top: 585px;
 			left: 0px;
-			--gdq-nameplate-width: 520px;
+			width: 450px;
 		}
 
 		gdq-runinfo {
 			right: 240px;
 			top: 585px;
 			bottom: 0;
-			left: 520px;
+			left: 450px;
 			border-left: 4px solid black;
 			border-right: 4px solid black;
 		}
 
 		gdq-timer {
 			right: 0px;
-			top: 200px;
+			bottom: 20px;
 			width: 240px;
 		}
 
 		gdq-twitter {
-			bottom: 0;
+			bottom: 120px;
 			right: 0;
 			width: 240px;
 			height: 360px;
 
 			--gdq-twitter-body: {
-				font-size: 19px;
-				padding: 20px 25px 0 25px;
+				font-size: 25px;
 			};
 			--gdq-twitter-namebar: {
-				width: 240px;
-				height: 40px;
-				padding-bottom: 2px;
-				padding-left: 12px;
+				width: 80%;
+				height: 50px;
+				margin-bottom: -12px;
+				padding-bottom: 12px;
 				font-size: 21px;
 			};
+		}
+
+		#logo {
+			position: fixed;
+			right: 25px;
+			top: 10px;
 		}
 	</style>
 </head>
@@ -59,6 +64,7 @@
 		<gdq-timer></gdq-timer>
 		<gdq-twitter></gdq-twitter>
 		<gdq-nameplate index="0"></gdq-nameplate>
+		<img src="img/rtaij_logo.png" id="logo">
 	</div>
 
 	<script>

@@ -12,25 +12,21 @@
 	<link rel="import" href="elements/gdq-sponsors/gdq-sponsors.html">
 	<style is="custom-style">
 		gdq-nameplate {
-			--gdq-nameplate-width: 260px;
+			--gdq-nameplate-width: 230px;
 		}
-
 		gdq-nameplate:nth-of-type(1) {
 			top: 293px;
 			left: 0;
 		}
-
 		gdq-nameplate:nth-of-type(2) {
 			top: 293px;
-			right: 260px;
+			right: 230px;
 		}
-
 		gdq-nameplate:nth-of-type(3) {
 			bottom: 293px;
-			left: 260px;
+			left: 230px;
 			flex-direction: column-reverse;
 		}
-
 		gdq-nameplate:nth-of-type(4) {
 			bottom: 293px;
 			right: 0;
@@ -38,38 +34,45 @@
 		}
 
 		gdq-runinfo {
-			left: 520px;
-			right: 520px;
-			top: 0px;
-			height: 200px;
+			left: 460px;
+			right: 460px;
+			top: 293px;
+			bottom: 293px;
+			border-top: 4px solid black;
+			border-left: 4px solid black;
+			border-right: 4px solid black;
 		}
 
 		gdq-timer {
 			left: 520px;
 			right: 520px;
-			top: 320px;
-			bottom: 320px;
-			height: 53px;
+			top: 427px;
 		}
 
 		gdq-twitter {
-			bottom: 0;
+			top: 0;
+			bottom: 427px;
 			right: 520px;
 			left: 520px;
-			height: 293px;
 			width: 240px;
+			height: 293px;
 
 			--gdq-twitter-body: {
 				font-size: 25px;
-				padding-top: 3px;
 			};
 			--gdq-twitter-namebar: {
-				width: 293px;
+				width: 80%;
 				height: 50px;
 				margin-bottom: -12px;
 				padding-bottom: 12px;
 				font-size: 21px;
 			};
+		}
+
+		#logo {
+			position: fixed;
+			right: 545px;
+			bottom: 10px;
 		}
 	</style>
 </head>
@@ -83,6 +86,7 @@
 		<gdq-nameplate index="2"></gdq-nameplate>
 		<gdq-nameplate index="3"></gdq-nameplate>
 		<gdq-twitter></gdq-twitter>
+		<img src="img/rtaij_logo.png" id="logo">
 	</div>
 
 	<script>

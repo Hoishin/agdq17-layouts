@@ -11,38 +11,36 @@
 	<link rel="import" href="elements/gdq-twitter/gdq-twitter.html">
 	<link rel="import" href="elements/gdq-sponsors/gdq-sponsors.html">
 	<style is="custom-style">
-		gdq-nameplate {
-			top: 393px;
-			left: 11px;
-			--gdq-nameplate-width: 312px;
-		}
-
 		gdq-runinfo {
-			left: 0px;
-			top: 10px;
-			width: 330px;
-			height: 151px;
-			--gdq-runinfo-misc-height: 35px;
+			top: 0;
+			right: 0;
+			width: 260px;
+			height: 200px;
 		}
 
 		gdq-timer {
-			left: 0;
-			top: 420px;
-			height: 57px;
-			width: 330px;
-			font-size: 42px;
-			border-bottom: 1px solid #000000;
-			padding-top: 8px;
-			padding-bottom: 5px;
+			top: 200px;
+			right: 0;
+			width: 260px;
+		}
+
+		gdq-nameplate {
+			top: 320px;
+			right: 0px;
+			width: 260px;
 		}
 
 		gdq-twitter {
+			bottom: 70px;
+			right: 0;
+			height: 240px;
+			width: 260px;
+
 			--gdq-twitter-body: {
 				font-size: 25px;
-				padding-top: 5px;
 			};
 			--gdq-twitter-namebar: {
-				width: 269px;
+				width: 80%;
 				height: 50px;
 				margin-bottom: -12px;
 				padding-bottom: 12px;
@@ -50,24 +48,21 @@
 			};
 		}
 
-		gdq-sponsors,
-		gdq-twitter {
-			bottom: 7px;
-			left: 7px;
-			width: 316px;
-			height: 182px;
+		#logo {
+			position: fixed;
+			right: 35px;
+			bottom: 10px;
 		}
 	</style>
 </head>
 <body>
 	<div id="container">
-		<img id="background" src="img/backgrounds/gba_1_bg.png">
+		<img id="background" src="img/backgrounds/gba_1.png">
 		<gdq-runinfo></gdq-runinfo>
 		<gdq-timer></gdq-timer>
-		<gdq-sponsors></gdq-sponsors>
 		<gdq-twitter></gdq-twitter>
 		<gdq-nameplate index="0"></gdq-nameplate>
-		<img id="foreground" src="img/backgrounds/gba_1_fg.png">
+		<img src="img/rtaij_logo.png" id="logo">
 	</div>
 
 	<script>

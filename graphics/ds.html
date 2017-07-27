@@ -12,37 +12,38 @@
 	<link rel="import" href="elements/gdq-sponsors/gdq-sponsors.html">
 	<style is="custom-style">
 		gdq-nameplate {
-			top: 407px;
-			left: 42px;
-			z-index: 11;
-			--gdq-nameplate-width: 312px;
+			bottom: 110px;
+			right: 0;
+			--gdq-nameplate-width: 352px;
 		}
 
 		gdq-runinfo {
-			left: 0;
-			top: 287px;
-			width: 398px;
-			height: 122px;
-			--gdq-runinfo-misc-height: 33px;
+			right: 0;
+			top: 270px;
+			height: 150px;
+			width: 352px;
 		}
 
 		gdq-timer {
-			left: 0;
-			bottom: 0;
-			height: 52px;
-			width: 398px;
-			font-size: 42px;
-			border-bottom: 1px solid #000000;
+			right: 0;
+			top: 420px;
+			width: 352px;
+		}
+
+		#logo {
+			position: fixed;
+			right: 77px;
+			bottom: 10px;
 		}
 	</style>
 </head>
 <body>
 	<div id="container">
-		<img id="background" src="img/backgrounds/ds_bg.png">
+		<img id="background" src="img/backgrounds/ds.png">
 		<gdq-runinfo></gdq-runinfo>
 		<gdq-timer></gdq-timer>
-		<img id="foreground" src="img/backgrounds/ds_fg.png">
 		<gdq-nameplate index="0"></gdq-nameplate>
+		<img src="img/rtaij_logo.png" id="logo">
 	</div>
 
 	<script>
