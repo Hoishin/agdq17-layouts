@@ -14,6 +14,10 @@ module.exports = function (nodecg) {
 		})()
 	});
 
+	// Check UNIX time every millisecond, and if the difference is more than
+	// 1 second, increment the timeobject.
+	var startedTime = 0;
+
 	// Load the existing time and start the stopwatch at that.
 	if (stopwatch.value.state === 'running') {
 		const missedSeconds = Math.round((Date.now() - stopwatch.value.timestamp) / 1000);
@@ -65,8 +69,9 @@ module.exports = function (nodecg) {
 		}
 
 		clearInterval(tick);
+		startedTime = Date.now();
 		stopwatch.value.state = 'running';
-		interval = setInterval(tick, 1000);
+		interval = setInterval(tick, 1);
 	}
 
 	/**
@@ -74,7 +79,11 @@ module.exports = function (nodecg) {
 	 * @returns {undefined}
 	 */
 	function tick() {
-		TimeObject.increment(stopwatch.value);
+		const oneSecondAgo = Date.now() - 1000
+		if (startedTime < oneSecondAgo) {
+			TimeObject.increment(stopwatch.value);
+			startedTime += 1000;
+		}
 	}
 
 	/**
