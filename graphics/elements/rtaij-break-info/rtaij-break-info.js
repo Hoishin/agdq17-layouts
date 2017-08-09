@@ -13,7 +13,6 @@
 
     ready() {
       currentRun.on('change', this.currentRunChanged.bind(this));
-      setInterval(this.remainingTime.bind(this), 60 * 1000)
     },
 
     currentRunChanged(newVal) {
@@ -50,6 +49,7 @@
       this.$.runnerInfo.innerHTML = this.category + " | 走者：" + this.runners
 
       this.remainingTime();
+      setInterval(this.remainingTime.bind(this), 60 * 1000)
       this.async(this.fitName, 200);
     },
 
