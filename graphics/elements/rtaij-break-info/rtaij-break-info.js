@@ -13,6 +13,7 @@
 
     ready() {
       currentRun.on('change', this.currentRunChanged.bind(this));
+      let remainTimeRefresh = setInterval(this.remainingTime.bind(this), 60 * 1000)
     },
 
     currentRunChanged(newVal) {
@@ -28,6 +29,7 @@
         this.name = "";
         this.$.runnerInfo.innerHTML = "";
         this.time = "";
+        clearInterval(remainTimeRefresh);
         return;
       }
 
@@ -49,7 +51,6 @@
       this.$.runnerInfo.innerHTML = this.category + " | 走者：" + this.runners
 
       this.remainingTime();
-      setInterval(this.remainingTime.bind(this), 60 * 1000)
       this.async(this.fitName, 200);
     },
 
