@@ -50,7 +50,7 @@
       this.$.runnerInfo.innerHTML = this.category + " | 走者：" + this.runners
 
       this.remainingTime();
-      this.async(this.fitName, 100);
+      this.async(this.fitName, 200);
     },
 
     // Show time remaining until the run
