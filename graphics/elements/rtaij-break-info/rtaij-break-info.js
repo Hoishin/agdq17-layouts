@@ -3,7 +3,6 @@
 
   const schedule = nodecg.Replicant('schedule');
   const currentRun = nodecg.Replicant('currentRun');
-  let remainTimeRefresh;
 
   Polymer({
     is: 'rtaij-break-info',
@@ -14,9 +13,12 @@
 
     ready() {
       currentRun.on('change', this.currentRunChanged.bind(this));
+      setInterval(this.remainingTime.bind(this), 60 * 1000);
     },
 
     currentRunChanged(newVal) {
+      this.$.upNextInfo.classList.remove('hidden');
+
       // Show from next run if setup block
       let nextRunAdjust;
       if (schedule.value[newVal.order - 1].notes === 'break') {
@@ -26,10 +28,7 @@
       }
 
       if (!schedule.value[newVal.order + this.index - nextRunAdjust]) {
-        this.name = "";
-        this.$.runnerInfo.innerHTML = "";
-        this.time = "";
-        clearInterval(remainTimeRefresh);
+        this.$.upNextInfo.classList.add('hidden');
         return;
       }
 
@@ -48,10 +47,9 @@
       }
 
 
-      this.$.runnerInfo.innerHTML = this.category + " | 走者：" + this.runners
+      this.$.runnerInfo.innerHTML = this.category + " | 走者：" + this.runners;
 
       this.remainingTime();
-      remainTimeRefresh = setInterval(this.remainingTime.bind(this), 60 * 1000)
       this.async(this.fitName, 200);
     },
 
