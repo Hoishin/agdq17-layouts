@@ -3,6 +3,7 @@
 
   const schedule = nodecg.Replicant('schedule');
   const currentRun = nodecg.Replicant('currentRun');
+  let remainTimeRefresh;
 
   Polymer({
     is: 'rtaij-break-info',
@@ -13,7 +14,6 @@
 
     ready() {
       currentRun.on('change', this.currentRunChanged.bind(this));
-      let remainTimeRefresh = setInterval(this.remainingTime.bind(this), 60 * 1000)
     },
 
     currentRunChanged(newVal) {
@@ -51,6 +51,7 @@
       this.$.runnerInfo.innerHTML = this.category + " | 走者：" + this.runners
 
       this.remainingTime();
+      remainTimeRefresh = setInterval(this.remainingTime.bind(this), 60 * 1000)
       this.async(this.fitName, 200);
     },
 
