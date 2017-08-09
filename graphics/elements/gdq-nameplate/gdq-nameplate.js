@@ -69,11 +69,7 @@
 			stopwatch.on('change', this.stopwatchChanged.bind(this));
 		},
 
-		/*
-		 * 1) For singleplayer, if both match (ignoring capitalization), show only twitch.
-		 * 2) For races, if everyone matches (ignoring capitalization), show only twitch, otherwise,
-		 *    if even one person needs to show both, everyone shows both.
-		 */
+		// Uses array to control sub-plate rotation
 		currentRunChanged(newVal, oldVal) {
 			// If nothing has changed, do nothing.
 			if (oldVal && JSON.stringify(newVal.runners) === JSON.stringify(oldVal.runners)) {

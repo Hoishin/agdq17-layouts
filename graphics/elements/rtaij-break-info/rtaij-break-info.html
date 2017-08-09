@@ -1,0 +1,42 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../imports/textFit.html">
+
+<dom-module id="rtaij-break-info">
+  <template>
+    <style>
+      :host {
+        padding: 0 20px 0 20px;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        white-space: nowrap;
+      }
+
+      #game {
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
+      }
+      #runners, #time {
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+
+    <div id = "upNextInfo" class="shadow">
+      <div id="game">
+        <div id="gameName">[[name]]</div>
+      </div>
+      <div id="runners">
+        <div id="runnerInfo"></div>
+      </div>
+      <div id="time">[[time]]</div>
+    </div>
+  </template>
+
+  <script src="rtaij-break-info.js"></script>
+</dom-module>

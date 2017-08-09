@@ -71,7 +71,7 @@ module.exports = function (nodecg) {
 		clearInterval(tick);
 		startedTime = Date.now();
 		stopwatch.value.state = 'running';
-		interval = setInterval(tick, 1);
+		interval = setInterval(tick, 100);
 	}
 
 	/**
