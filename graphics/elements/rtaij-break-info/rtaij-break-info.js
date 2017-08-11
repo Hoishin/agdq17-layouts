@@ -56,7 +56,11 @@
     // Show time remaining until the run
     remainingTime() {
       this.startTime = this.showingRun.startTime;
-      this.time = this.formatRemaning(this.startTime - Math.floor(Date.now() / 1000));
+      if (this.index == 1) {
+        this.time = "このあとすぐ！";
+      } else {
+        this.time = this.formatRemaning(this.startTime - Math.floor(Date.now() / 1000));
+      }
     },
     formatRemaning(inSeconds) {
       if (inSeconds < 0) {
