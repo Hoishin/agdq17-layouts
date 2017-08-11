@@ -8,19 +8,18 @@ module.exports = function (nodecg) {
 	// Create defaults array
 	const checklistDefault = {
 		dashboardDuties: [
-			{name: 'タイムをメモる', complete: false},
-			{name: 'タイマーをリセット', complete: false},
-			{name: '次のゲームを選ぶ', complete: false},
 			{name: '走者の情報を確認', complete: false},
 			{name: 'ゲームの情報を確認', complete: false},
-			{name: '技術メモ確認', complete: false}
+			{name: '技術メモ確認', complete: false},
+			{name: 'FTL, RTMPかどうか確認', complete: false},
+			{name: 'レイアウトが合っている', complete: false}
 		],
 		obsDuties: [
-			{name: 'レイアウトを選択', complete: false},
-			{name: '走者とゲームが一致', complete: false},
+			{name: '走者とゲームの位置が一致', complete: false},
 			{name: 'ゲーム画面をクロップ', complete: false},
 			{name: 'ゲームと声のバランス', complete: false},
-			{name: '録画を停止/再開', complete: false}
+			{name: 'アニメーション問題なし', complete: false},
+			{name: '走者にゴーサイン', complete: false}
 		]
 	};
 
