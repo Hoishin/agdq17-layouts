@@ -27,8 +27,7 @@ module.exports = function (nodecg) {
 		qs: {
 			hiddenkey: 'show'
 		},
-		json: true,
-
+		json: true
 	};
 
 	// If a "streamTitle" template has been defined in the bundle config, and if lfg-twitch api is present,
