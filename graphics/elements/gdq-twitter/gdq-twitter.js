@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	const BODY_DISPLAY_DURATION = 9;
+	const BODY_DISPLAY_DURATION = 30;
 
 	Polymer({
 		is: 'gdq-twitter',
