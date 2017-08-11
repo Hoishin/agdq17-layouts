@@ -59,6 +59,9 @@
       this.time = this.formatRemaning(this.startTime - Math.floor(Date.now() / 1000));
     },
     formatRemaning(inSeconds) {
+      if (inSeconds < 0) {
+        return "あと0時間0分";
+      }
   		const seconds = inSeconds % 60;
   		const minutes = ((inSeconds - seconds) / 60) % 60;
   		const hours = Math.floor(inSeconds / (60 * 60));
