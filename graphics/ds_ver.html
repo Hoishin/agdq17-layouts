@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Widescreen, 4 Player</title>
+	<title>DS Vertical, 1 Player</title>
 	<link rel="stylesheet" href="style/layout.css">
 	<script src="components/gsap/src/minified/TweenMax.min.js"></script>
 	<link rel="import" href="elements/gdq-nameplate/gdq-nameplate.html">
@@ -11,51 +11,30 @@
 	<link rel="import" href="elements/gdq-twitter/gdq-twitter.html">
 	<link rel="import" href="elements/gdq-sponsors/gdq-sponsors.html">
 	<style is="custom-style">
-		gdq-nameplate {
-			--gdq-nameplate-width: 230px;
-		}
-		gdq-nameplate:nth-of-type(1) {
-			top: 293px;
-			left: 0;
-		}
-		gdq-nameplate:nth-of-type(2) {
-			top: 293px;
-			right: 230px;
-		}
-		gdq-nameplate:nth-of-type(3) {
-			bottom: 293px;
-			left: 230px;
-			flex-direction: column-reverse;
-		}
-		gdq-nameplate:nth-of-type(4) {
-			bottom: 293px;
-			right: 0;
-			flex-direction: column-reverse;
-		}
-
 		gdq-runinfo {
-			left: 460px;
-			right: 460px;
-			top: 293px;
-			bottom: 293px;
-			border-top: 4px solid black;
-			border-left: 4px solid black;
-			border-right: 4px solid black;
+			top: 0;
+			right: 0;
+			width: 519px;
+			height: 200px;
 		}
 
 		gdq-timer {
-			left: 520px;
-			right: 520px;
-			top: 427px;
+			top: 200px;
+			right: 0;
+			width: 519px;
+		}
+
+		gdq-nameplate {
+			top: 320px;
+			right: 0px;
+			width: 519px;
 		}
 
 		gdq-twitter {
-			top: 0;
-			bottom: 427px;
-			right: 520px;
-			left: 520px;
-			width: 240px;
-			height: 293px;
+			bottom: 70px;
+			right: 0;
+			height: 240px;
+			width: 519px;
 
 			--gdq-twitter-body: {
 				font-size: 25px;
@@ -70,22 +49,19 @@
 		}
 
 		#logo {
-			position: fixed;
-			right: 545px;
+			position: absolute;
+			right: 164px;
 			bottom: 10px;
 		}
 	</style>
 </head>
 <body>
 	<div id="container">
-		<img id="background" src="img/backgrounds/wide_4.png">
+		<img id="background" src="img/backgrounds/ds_ver.png">
 		<gdq-runinfo></gdq-runinfo>
 		<gdq-timer></gdq-timer>
-		<gdq-nameplate index="0"></gdq-nameplate>
-		<gdq-nameplate index="1"></gdq-nameplate>
-		<gdq-nameplate index="2"></gdq-nameplate>
-		<gdq-nameplate index="3"></gdq-nameplate>
 		<gdq-twitter></gdq-twitter>
+		<gdq-nameplate index="0"></gdq-nameplate>
 		<img src="img/rtaij_logo.png" id="logo">
 	</div>
 
