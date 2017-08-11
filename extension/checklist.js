@@ -15,7 +15,7 @@ module.exports = function (nodecg) {
 			{name: 'レイアウトが合っている', complete: false}
 		],
 		obsDuties: [
-			{name: '走者とゲームの位置が一致', complete: false},
+			{name: '走者とゲームが一致', complete: false},
 			{name: 'ゲーム画面をクロップ', complete: false},
 			{name: 'ゲームと声のバランス', complete: false},
 			{name: 'アニメーション問題なし', complete: false},
