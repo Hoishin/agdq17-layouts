@@ -45,7 +45,7 @@ module.exports = function (nodecg) {
 			currentRun.on('change', newVal => {
 				if (newVal.englishName !== lastEnglishName || newVal.name !== lastName) {
 					nodecg.log.info('Updating Twitch title and game to', newVal.englishName);
-					lastName = newVal.name.replace('\\n', '');
+					lastName = newVal.name.replace(/\\n/gi, '');
 					lastEnglishName = newVal.englishName;
 					twitchApi.put('/channels/{{username}}', {
 						channel: {

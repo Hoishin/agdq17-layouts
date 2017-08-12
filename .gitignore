@@ -18,3 +18,5 @@ coverage
 firebase-credentials.json
 
 npm-debug.log
+.jshintrc
+.vscode/settings.json
