@@ -21,8 +21,8 @@
 
       let adjust = 0;
       function skip(index) {
-        if (schedule.value[newVal.order - 1 + index - 1].name === 'セットアップ') {
-          console.log('yes');
+        const runOfIndex = schedule.value[newVal.order - 1 + index - 1]
+        if (runOfIndex && runOfIndex.name === 'セットアップ') {
           adjust++;
         }
       }
@@ -37,6 +37,12 @@
       }
 
       this.showingRun = schedule.value[newVal.order - 1 + this.index - 1 + adjust];
+      if (!this.showingRun) {
+        this.$.upNextInfo.classList.add('hidden');
+        return;
+      } else {
+        console.log('no');
+      }
       this.name = this.showingRun.name;
       this.category = this.showingRun.category;
       this.console = this.showingRun.console;
