@@ -19,20 +19,24 @@
     currentRunChanged(newVal) {
       this.$.upNextInfo.classList.remove('hidden');
 
-      // Show from next run if setup block
-      let nextRunAdjust;
-      if (schedule.value[newVal.order - 1].notes === 'break') {
-        nextRunAdjust = 1;
-      } else {
-        nextRunAdjust = 2;
+      let adjust = 0;
+      function skip(index) {
+        if (schedule.value[newVal.order - 1 + index - 1].name === 'セットアップ') {
+          console.log('yes');
+          adjust++;
+        }
       }
 
-      if (!schedule.value[newVal.order + this.index - nextRunAdjust]) {
-        this.$.upNextInfo.classList.add('hidden');
-        return;
+      switch (this.index) {
+        case 3:
+          skip(3);
+        case 2:
+          skip(2);
+        case 1:
+          skip(1);
       }
 
-      this.showingRun = schedule.value[newVal.order + this.index - nextRunAdjust];
+      this.showingRun = schedule.value[newVal.order - 1 + this.index - 1 + adjust];
       this.name = this.showingRun.name;
       this.category = this.showingRun.category;
       this.console = this.showingRun.console;
