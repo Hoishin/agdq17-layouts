@@ -45,12 +45,13 @@ module.exports = function (nodecg) {
 			currentRun.on('change', newVal => {
 				if (newVal.englishName !== lastEnglishName || newVal.name !== lastName) {
 					nodecg.log.info('Updating Twitch title and game to', newVal.englishName);
-					lastName = newVal.name.replace(/\\n/gi, '');
+					let newName = newVal.name.replace(/\\n/gi, '')
+					lastName = newVal.name;
 					lastEnglishName = newVal.englishName;
 					twitchApi.put('/channels/{{username}}', {
 						channel: {
 							// eslint-disable-next-line no-template-curly-in-string
-							status: nodecg.bundleConfig.streamTitle.replace('${gameName}', newVal.name),
+							status: nodecg.bundleConfig.streamTitle.replace('${gameName}', newVal.name.replace(/\\n/gi, '')),
 							game: newVal.englishName
 						}
 					}).then(response => {
