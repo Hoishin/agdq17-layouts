@@ -20,6 +20,14 @@
     rtaij-break-info:nth-of-type(3) {
       bottom: 268px;
     }
+
+    #globalTimer {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      font-size: 25px;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -28,6 +36,7 @@
     <rtaij-break-info index="1"></rtaij-break-info>
     <rtaij-break-info index="2"></rtaij-break-info>
     <rtaij-break-info index="3"></rtaij-break-info>
+    <div id="globalTimer" class="shadow"></div>
   </div>
 
   <script>
@@ -37,6 +46,24 @@
         ease: Power1.easeOut
       });
     });
+
+    const TIME_STARTED = 1502420400000;// 12:00:00, 11 August 2017
+    let timeDiff = Date.now() - TIME_STARTED;
+    setInterval(globalTimer, 100);
+
+    function globalTimer() {
+      if (timeDiff < Date.now() - TIME_STARTED + 1000) {
+        timeDiff += 1000;
+        document.getElementById("globalTimer").innerHTML = formatTime(Math.floor(timeDiff / 1000));
+      }
+    }
+
+    function formatTime(inSeconds) {
+      const seconds = inSeconds % 60;
+      const minutes = ((inSeconds - seconds) / 60) % 60;
+      const hours = Math.floor(inSeconds / (60 * 60));
+      return `イベント開始から${hours}時間${minutes}分${seconds}秒経過・・・`;
+    }
   </script>
 </body>
 </html>
