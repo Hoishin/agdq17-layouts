@@ -139,6 +139,13 @@ module.exports = function (nodecg) {
 			} else {
 				nodecg.log.error('[modifyRun] Found current/next run, but couldn\'t find original in schedule. Aborting.');
 			}
+
+			console.log('original:');
+			console.log(original);
+			console.log('run:');
+			console.log(run);
+			console.log('data:');
+			console.log(data);
 		} else {
 			console.warn('[modifyRun] run not found:', data);
 		}

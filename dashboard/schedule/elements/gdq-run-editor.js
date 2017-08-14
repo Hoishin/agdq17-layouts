@@ -45,7 +45,6 @@
 						twitter: runnerTwitterInputs[i].value
 					};
 				}
-				console.log(runners);
 			}
 
 			nodecg.sendMessage('modifyRun', {
