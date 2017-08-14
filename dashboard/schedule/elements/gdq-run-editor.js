@@ -44,8 +44,8 @@
 						nico: runnerNicoInputs[i].value,
 						twitter: runnerTwitterInputs[i].value
 					};
-					console.log('runner info update, i guess');
 				}
+				console.log(runners);
 			}
 
 			nodecg.sendMessage('modifyRun', {
