@@ -37,14 +37,15 @@
 			const runnerNicoInputs = Polymer.dom(this.$.runners).querySelectorAll('paper-input[label="ニコ生"]:not([disabled])');
 			const runnerTwitterInputs = Polymer.dom(this.$.runners).querySelectorAll('paper-input[label="ツイッター"]:not([disabled])');
 			for (let i = 0; i < 4; i++) {
-				//if (runnerNameInputs[i].value || runnerTwitchInputs[i].value || runnerNicoInputs[i].value || runnerTwitterInputs[i].value) {
+				if (runnerNameInputs[i].value || runnerTwitchInputs[i].value || runnerNicoInputs[i].value || runnerTwitterInputs[i].value) {
 					runners[i] = {
 						name: runnerNameInputs[i].value,
 						twitch: runnerTwitchInputs[i].value,
 						nico: runnerNicoInputs[i].value,
 						twitter: runnerTwitterInputs[i].value
 					};
-				//}
+					console.log('runner info update, i guess');
+				}
 			}
 
 			nodecg.sendMessage('modifyRun', {
