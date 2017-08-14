@@ -19,7 +19,7 @@ module.exports = function (nodecg) {
 	const nextRun = nodecg.Replicant('nextRun', {defaultValue: {}});
 
 	const optionsRunners = {
-		uri: "https://puu.sh/wLrXD/340ee3d69d.json",
+		uri: "https://puu.sh/x9tQO/c091c65cae.json",
 		json: true
 	};
 	const optionsSchedule = {
@@ -139,13 +139,6 @@ module.exports = function (nodecg) {
 			} else {
 				nodecg.log.error('[modifyRun] Found current/next run, but couldn\'t find original in schedule. Aborting.');
 			}
-
-			console.log('original:');
-			console.log(original);
-			console.log('run:');
-			console.log(run);
-			console.log('data:');
-			console.log(data);
 		} else {
 			console.warn('[modifyRun] run not found:', data);
 		}
