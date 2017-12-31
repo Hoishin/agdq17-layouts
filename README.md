@@ -1,5 +1,7 @@
 # rtaij-layouts
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Hoishin/rtaij-layouts-legacy.svg)](https://greenkeeper.io/)
+
 This is sets of on-stream layouts that RTA in Japan uses for speedrunning events. RTA in Japan is offline/online speedrunning marathon. It has held 3 events since December 2016, this layouts are used from "RTA in Japan Online" in August 2017.  
 これはRTA in JapanというRTAイベントで使われた配信用レイアウトです。RTA in Japanは2016年冬に第1回が開催された、大規模RTAイベントで、今まで3回開催されています。このレイアウトは2017年8月のRTA in Japan Onlineで使われたものです。
 
